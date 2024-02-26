@@ -1,4 +1,24 @@
+/**
+ * Renders a list of product cards by mapping over the productList array
+ * and returning a ProductCard component for each product.
+ *
+ * The cards are rendered in a responsive grid layout.
+ */
+import ProductCard from "./components/ProductCard";
+import { productList } from "./data";
+
 const App = () => {
-  return <div className="font-mono text-4xl">Esraa</div>;
+  // ** Renders
+  const renderProductList = productList.map((product) => (
+    <ProductCard key={product.id} product={product} />
+  ));
+
+  return (
+    <main className="container">
+      <div className="m-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 md:gap-4 p-2 rounded-md">
+        {renderProductList}
+      </div>
+    </main>
+  );
 };
 export default App;
